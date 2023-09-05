@@ -143,6 +143,8 @@ button:hover {
 .games-card {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -151,28 +153,13 @@ button:hover {
     font-weight: 900;
 }
 
-/* .games-card>.card>img {
-    opacity: 1;
-    backface-visibility: hidden;
-} */
-
-.games-card>.card>img:hover {
-    color: #0B0223;
-    opacity: 0.2;
-    cursor: pointer;
-    border-radius: 16px;
-    border: 4px solid var(--Linear, #FF42A5);
-
+.card {
+    position: relative;
 }
 
 .text-hover {
-    opacity: 100%;
-    position: absolute;
-    top: 100;
-    left: 100;
-    /* translate: 170px -310px; */
-    transform: translate(170px, -300px);
-    text-align: center;
+    display: none;
+
 }
 
 
@@ -186,14 +173,22 @@ button:hover {
     color: #FF42A5;
 }
 
-.games-card>.card>img:hover .text-hover {
-    /* opacity: 100%; */
-    visibility: visible;
+.card:hover>.text-hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    flex-direction: column;
+    position: absolute;
+    top: 0%;
+    width: 73%;
+    margin-left: 4rem;
+    background: #000000a3;
+    height: 84%;
+    border-radius: 14px;
+    gap: 0.8rem;
 }
 
-/* .text-hover:hover {
-    opacity: 100%;
-} */
 
 /* PLAY INSTANTLY */
 .play-content {
@@ -211,25 +206,33 @@ button:hover {
 
 /* /game type */
 .game-type {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    margin: 1rem 7rem;
     gap: 2rem;
     position: relative;
-    bottom: 12rem;
+    bottom: 18rem;
+    background: linear-gradient(90deg, rgba(255, 66, 165, 0.03) 0%, rgba(255, 66, 165, 0.03) 100%);
+    padding: 10rem 0;
+}
+
+.game-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .type-content {
-    /* text-align: center; */
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 50px;
+    gap: 2rem;
     color: #0B0223;
     font-size: 1rem;
-    padding: 0 1rem;
-    border: 1.5px solid #d6d3d4;
+    padding: 1rem 1rem;
+    border: 1.5px solid transparent;
     background: #FFF;
+    margin: 1rem;
 }
 
 .type-content:hover {
@@ -244,11 +247,9 @@ button:hover {
 footer {
     background-color: #0B0223;
     position: relative;
-    bottom: 5rem;
+    bottom: 18rem;
     text-align: center;
     padding: 4rem;
-
-
 
 }
 
@@ -256,7 +257,6 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* justify-content: space-around; */
     color: #FFF;
     font-size: 2rem;
 }
@@ -264,6 +264,7 @@ footer {
 .about-information {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
@@ -271,19 +272,34 @@ footer {
     color: #FFF;
 }
 
+.footer-icon {
+    display: grid;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+    font-size: 1rem;
+    cursor: pointer;
+
+}
+
 
 .footer-icon a {
     text-decoration: none;
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: #f3f3f3;
-    letter-spacing: 4rem;
 
+
+}
+
+.footer-icon a:hover {
+    background-color: ;
 }
 
 .policy {
     color: rgba(255, 255, 255, 0.60);
     font-size: 1rem;
     display: grid;
+    flex-wrap: wrap;
     grid-template-columns: repeat(4, 1fr);
     justify-content: center;
     align-items: center;
@@ -294,218 +310,4 @@ footer {
 .copy-right {
     color: rgba(255, 255, 255, 0.60);
     font-size: 1rem;
-}
-
-
-
-
-
-/* Responsive website */
-
-/* small device */
-@media screen and (max-width: 576px) {
-
-    .navbar,
-    .menu-bar,
-    .play-instantly {
-        flex-direction: column;
-    }
-
-    .menu-bar {
-        gap: 0;
-    }
-
-    .header-container {
-        flex-direction: column-reverse;
-        margin: 1.5rem;
-        gap: 1.5rem;
-        background-size: 100%;
-        background-position: bottom left;
-    }
-
-    .header-container img {
-        width: 100%;
-    }
-
-    .header-details {
-        margin-bottom: 1rem;
-    }
-
-    .header-details h1 {
-        font-size: 30px;
-    }
-
-    .header-details span {
-        font-size: 50px;
-    }
-
-    .header-details p {
-        font-size: 0.8rem;
-    }
-
-    button {
-        font-size: 0.5rem;
-        padding: 1rem 2rem;
-    }
-
-    .games-card {
-        grid-template-columns: 1fr;
-    }
-
-    .play-instantly {
-        text-align: center;
-    }
-
-    .play-content {
-        margin-bottom: 0;
-    }
-
-    .play-img img {
-        /* margin: 2rem; */
-        max-width: 80%;
-        height: auto;
-        /* border: 1px solid red; */
-    }
-
-    .play-badge {
-        max-width: 40%;
-        margin-top: 10rem;
-        left: 1rem;
-    }
-
-    .game-type {
-        margin: 1.5rem;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-
-    }
-
-    .type-content {
-        font-size: 0.5rem;
-        padding: 0 0.1rem;
-    }
-
-    .type-content img {
-        width: 30%;
-    }
-
-    .about-information {
-        grid-template-columns: repeat(3, 1fr);
-        font-size: 1rem;
-        margin: 0%;
-        padding-bottom: 1rem;
-    }
-
-    .footer-icon a {
-        font-size: 1rem;
-
-    }
-
-    .footer-icon {
-        text-align: right;
-        margin-left: 40px;
-
-    }
-
-    .policy {
-        grid-template-columns: repeat(2, 1fr);
-        margin: 0%;
-        font-size: 0.7rem;
-
-    }
-
-
-
-
-
-
-}
-
-/* medium device */
-@media screen and (min-width:576px) and (max-width: 992px) {
-
-    .navbar,
-    .play-instantly {
-        flex-direction: column;
-    }
-
-    .header-container {
-        flex-direction: column-reverse;
-        margin: 1.5rem;
-        gap: 6rem;
-        background-size: 100%;
-        background-position: bottom -100px left;
-    }
-
-    .header-details {
-        margin-bottom: 3.5rem;
-    }
-
-    .favorite-games {
-        width: 100%;
-    }
-
-    .games-card {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .play-content {
-        text-align: center;
-        margin-bottom: 0%;
-    }
-
-    .play-badge {
-        /* max-width: 10%; */
-        margin-left: 7rem;
-        margin-top: 3rem;
-
-    }
-
-    .play-badge img {
-        max-width: 40%;
-    }
-
-    .game-type {
-        margin: 2rem;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1rem;
-    }
-
-    .type-content {
-        font-size: 0.7rem;
-        padding: 0 0.5rem;
-    }
-
-    .type-content img {
-        width: 35%;
-    }
-
-    .about-information {
-        grid-template-columns: repeat(3, 1fr);
-        font-size: 1.5rem;
-        margin: 0%;
-        padding-bottom: 1rem;
-    }
-
-    .footer-icon a {
-        font-size: 1.5rem;
-
-    }
-
-    .footer-icon {
-        text-align: right;
-        margin-left: 40px;
-        margin-bottom: 1rem;
-
-    }
-
-    .policy {
-        margin: 0%;
-        font-size: 1rem;
-
-    }
-
-
-
-
 }
