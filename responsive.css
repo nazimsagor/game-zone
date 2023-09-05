@@ -64,10 +64,8 @@
     }
 
     .play-img img {
-        /* margin: 2rem; */
         max-width: 80%;
         height: auto;
-        /* border: 1px solid red; */
     }
 
     .play-badge {
@@ -164,7 +162,6 @@
     }
 
     .play-badge {
-        /* max-width: 10%; */
         margin-left: 7rem;
         margin-top: 3rem;
 
